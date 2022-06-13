@@ -20,7 +20,6 @@ def selectTask():
     """)
 
     while selection.lower() != "q":
-        
         if selection == "1":
             addItem()
         if selection == "2":
