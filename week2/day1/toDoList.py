@@ -1,29 +1,71 @@
-# Press 1 to add task
+listOfItems = []
 
-# Press 2 to delete task
+def toDoList():
+    greeting()
+    selectTask()
 
-# Press 3 to view all tasks
+def greeting():
+    print("\n Welcome to your To Do List! What would you like to do?")
 
-# Press q to quit
+def nextTask():
+    print("\n What would you like to do next?")
+    selectTask()
 
-# The user should only be allowed to quit when they press 'q'.
+def selectTask():
+    selection = input("""
+    Press 1 to add item
 
-# Add Task:
+    Press 2 to delete item
 
-# Ask the user for the 'title' and 'priority' of the task. Priority can be high, medium and low.
+    Press 3 to view all items
 
-# Delete Task:
+    Press q to quit
+    """)
 
-# Show user all the tasks along with the index number of each task. User can then enter the index number of the task to delete the task.
+    while selection.lower() != "q":
+        
+        if selection == "1":
+            addItem()
+        if selection == "2":
+            delItem()
+        if selection == "3":
+            viewItems()
+        break
 
-# View all tasks:
+def addItem():
+    itemToAdd = input("What item would you like to add to your To Do List? ")
+    itemPriority = input("What is the priority of this item? (high, medium, low)")
+    newItem = Item(itemToAdd, itemPriority)
+    listOfItems.append(newItem)
+    for stuff in listOfItems:
+        index = listOfItems.index(stuff) +1
+        print(f" #{index} - {stuff.name} - {stuff.priority} priority")
+    nextTask()
 
-# Allow the user to view all the tasks in the following format:
+def delItem():
+    itemToDelete = int(input("Select the number of the item you would like to delete:"))
+    del listOfItems[itemToDelete-1]
+    nextTask()
 
-# 1 - Wash the car - high
+def viewItems():
+    print("\n Here's you current To Do List!\n")
+    for stuff in listOfItems:
+        index = listOfItems.index(stuff) +1
+        print(f"# {index} - {stuff.name} - {stuff.priority} priority\n")
+    nextTask()
 
-# 2 - Mow the lawn - low
+class Item:
+    def __init__(self, name, priority):
+        self.name = name
+        self.priority = priority
 
-# Store each task in a dictionary and use 'title' and 'priority' as keys of the dictionary.
+#sample list
+newItem = Item("mow the yard", "high")
+listOfItems.append(newItem)
+newItem = Item("buy groceries", "medium")
+listOfItems.append(newItem)
+newItem = Item("sweep the floor", "low")
+listOfItems.append(newItem)
 
-# Store each dictionary inside an array. Array will represent list of tasks.
+toDoList()
+

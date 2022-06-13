@@ -16,6 +16,8 @@ class BankAccount:
 
 checking_account = BankAccount("FD332", 100)
 savings_account = BankAccount("FD333", 100)
+savings_account.deposit(200)
+savings_account.withdraw(100)
 checking_account.transfer_funds(50, checking_account, savings_account) 
 print(checking_account.balance)
 print(savings_account.balance)
