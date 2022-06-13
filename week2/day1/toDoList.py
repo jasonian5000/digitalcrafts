@@ -1,11 +1,8 @@
 listOfItems = []
 
 def toDoList():
-    greeting()
-    selectTask()
-
-def greeting():
     print("\n Welcome to your To Do List! What would you like to do?")
+    selectTask()
 
 def nextTask():
     print("\n What would you like to do next?")
@@ -29,29 +26,26 @@ def selectTask():
         if selection == "2":
             delItem()
         if selection == "3":
-            viewItems()
+            printItems()
         break
 
 def addItem():
     itemToAdd = input("What item would you like to add to your To Do List? ")
-    itemPriority = input("What is the priority of this item? (high, medium, low)")
+    itemPriority = input("\n What is the priority of this item? (high, medium, low) ")
     newItem = Item(itemToAdd, itemPriority)
     listOfItems.append(newItem)
-    for stuff in listOfItems:
-        index = listOfItems.index(stuff) +1
-        print(f" #{index} - {stuff.name} - {stuff.priority} priority")
-    nextTask()
+    printItems()
 
 def delItem():
-    itemToDelete = int(input("Select the number of the item you would like to delete:"))
+    itemToDelete = int(input("Select the number of the item you would like to delete: "))
     del listOfItems[itemToDelete-1]
-    nextTask()
+    printItems()
 
-def viewItems():
+def printItems():
     print("\n Here's you current To Do List!\n")
     for stuff in listOfItems:
         index = listOfItems.index(stuff) +1
-        print(f"# {index} - {stuff.name} - {stuff.priority} priority\n")
+        print(f"# {index} - {stuff.name.title()} - {stuff.priority.title()} Priority")
     nextTask()
 
 class Item:
