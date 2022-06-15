@@ -12,7 +12,6 @@ def playAgain():
     if choice == "n":
         quit()
 
-
 def intro():
     clear()
     print("""
@@ -48,7 +47,6 @@ class Doctor:
         if doctor.debt <= 0:
             print("\n\nYou paid off your student loan! Now you can move on to bigger and better things.")
             playAgain()
-
 
 def createDoctor():
     global doctor
@@ -87,7 +85,6 @@ class Creature:
         clear()
         print("This treatment seems to be working! Your patient is cured!\n")
         print(self.curedMessage)
-
 
     def loseHealth(self):
         self.health -= 1
