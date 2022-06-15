@@ -1,16 +1,3 @@
-# 1 class at a minimum
-# functions
-# for loops
-# while loops
-# list
-# variables
-# adding/removing aspects about your class
-# the ability to exit the game
-# the ability to replay the game
-# clean code
-# aim for mvp first
-# updated repo with a readme that explain your project, how to run it, and a link to your medium or dev.to article
-# dev.to or medium article about your project and what you did
 import random
 import os
 def clear():
@@ -176,14 +163,5 @@ def treatPatient():
         del creaturesList[i]
         print("\nLet's see our next patient.")
         treatPatient()
-
-
-    
-
-    
-
-    
+  
 intro()
-#createDoctor()
-#treatPatient()
-#print(doctor.name)
