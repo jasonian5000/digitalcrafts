@@ -11,6 +11,7 @@
 # aim for mvp first
 # updated repo with a readme that explain your project, how to run it, and a link to your medium or dev.to article
 # dev.to or medium article about your project and what you did
+import random
 import os
 def clear():
     os.system('clear')
@@ -27,18 +28,21 @@ def playAgain():
 
 def intro():
     clear()
-    print("******************************************")
-    intro1=input("Welcome to the Mythical Hospital! (press Enter)")
-    intro2=input("You are our new doctor from the realm of humans. (press Enter)")
-    intro3=input("My name is Karen and I'm the HR onboarding specialist. (press Enter)")
-    intro4=input("I'm a ghoul so this is the only job they would give me... (press Enter)")
-    intro5=input("Anyway. You volunteered to work at the Mythical Hospital to help pay for your student loans. (press Enter)")
-    intro6=input("If you are able to cure enough of our mythical patients then your student loan will be paid off and you can leave. (press Enter)")
-    intro7=input("If a patient doesn't like you though... well just sign this waiver.")
+    print("""
+    ******************************************
+    *    Welcome to the Mythical Hospital    *
+    ******************************************
+    """)
+    intro1=input("You are our new doctor from the realm of humans. (press Enter)")
+    intro2=input("I'm Karen the Ghoul and I'm the HR onboarding specialist. (press Enter)")
+    intro3=input("I see you volunteered to work at the Mythical Hospital to help pay for your student loans. (press Enter)")
+    intro4=input("If you are able to cure enough of our mythical patients then your student loan will be paid off and you can leave. (press Enter)")
+    intro5=input("If a patient doesn't like you though... well just sign this waiver. (press Enter)")
     waiver=input("Sign the waiver? Y or N \n")
     while waiver.lower() != "n" and waiver.lower() != "y":
         waiver=input("Sign the waiver? Y or N \n")
     if waiver.lower() == "y":
+        clear()
         print("Great! Welcome aboard!")
         createDoctor()
     if waiver == "n":
@@ -49,6 +53,15 @@ class Doctor:
     def __init__(self, name, debt):
         self.name=name
         self.debt=debt
+
+    def getMoney(self, money):
+        self.debt -= money
+
+    def debtCheck(self):
+        if doctor.debt <= 0:
+            print("\n\nYou paid off your student loan! Now you can move on to bigger and better things.")
+            playAgain()
+
 
 def createDoctor():
     global doctor
@@ -78,64 +91,99 @@ class Creature:
 
     def healthCheck(self):
         if self.health == 0:
-            print("None of you treatments worked!")
+            clear()
+            print("None of your treatments worked!")
             print(self.youlose)
             playAgain()
             
     def cured(self):
-        print("This treatment seems to be working! Your patient is cured!")
+        clear()
+        print("This treatment seems to be working! Your patient is cured!\n")
         print(self.curedMessage)
 
 
     def loseHealth(self):
-        print("This treatment is not working. Your patient is getting worse..")
-        print("What would you like to do now? \n")
         self.health -= 1
 
+    def treatmentOptions(self):
+        print(self.ailment)
+        print("""
+        ***************************
+              Treatment Options
+        ***************************
+        """)
+        print(f"# 1 - {self.treatment1}")
+        print(f"# 2 - {self.treatment2}")
+        print(f"# 3 - {self.treatment3}")
+
 creaturesList=[]
-creaturesList.append(Creature("Werewolf", 20000, "This werewolf has cursed fleas.", "Shave him.", "Give him a bath.", 
+creaturesList.append(Creature("Werewolf", 100000, "This werewolf has cursed fleas.", "Shave him.", "Give him a bath.", 
     "Scratch him vigorously.", "He doesn't like that at all! The werewolf bites you in terrible places. You die.", 
-    "He is very grateful. Unfornately this is one of those biker werewolves and he doesn't have any money. His very basic insurance pays you $20,000."))
-creaturesList.append(Creature("Dragon", 500000, "This dragon has a sore throat.", "Give her chamomile tea with organic honey.", "Feed her a tiny goat covered in molasses.",
+    "He is very grateful. Unfornately this is one of those biker werewolves and he doesn't have any money. His very basic insurance pays you $100,000."))
+creaturesList.append(Creature("Dragon", 600000, "This dragon has a sore throat.", "Give her chamomile tea with organic honey.", "Feed her a tiny goat covered in molasses.",
     "Get her drunk.", "The dragon unexpectedly coughs and you are horribly burned to death. Bummer.",
-    "This is one of those dragons that sits in a cave full of gold! She gives you $500,000 worth of stolen dwarf booty!"))
+    "This is one of those dragons that sits in a cave full of gold! She gives you $600,000 worth of stolen dwarf booty!"))
 creaturesList.append(Creature("Mermaid", 200000, "This mermaid has swimmer's ear.", "Hold her upside down and slap her.", "Have her stick her thumb in her mouth and blow.",
     "Put an octopus sucker against her ear and pull it away repeatedly.",
     "She is very disappointed in you. She holds you tightly as you sink to the bottom of the ocean. You fade into darkness. Goodbye.",
     "She is so grateful! She kisses you sweetly and gives you $200,000 worth of Spanish doubloons from a sunken ship!"))
-creaturesList.append(Creature("Sphinx", 500000, "This sphinx has a running nose.", "Clean the sand out of her nose with a giant q-tip.", 
-    "Irrigate her nose with water from the Dead Sea.", "Do the \"Walk like an Egyptian\" dance until she chortles really hard.",
-    "The sphinx asks you a riddle. It's more of a dad joke really but she takes your groan to be an incorrect answer. You are devoured by angry mummies.", 
+creaturesList.append(Creature("Sphinx", 500000, "This sphinx has a running nose.", "Clean the sand out of her nose with a mummy on a pole.", 
+    "Irrigate her nose with water from the Dead Sea.", "Do the \"Walk like an Egyptian\" dance until she snort-laughs really hard.",
+    "The sphinx asks you a riddle. It's more of a dad joke really but she takes your groan to be an incorrect answer. You are ripped apart by angry mummies.", 
     "The sphinx is very pleased! She gives you $500,000 worth of Egyptian gold. She cleared it with the Egyptian government so we're all good."))
-creaturesList.append(Creature("Medusa", 400000, "This medusa is having a really bad hair day.", "Play one of those Indian flutes(a pungi) to sooth her snakey hair.", 
-    "Braid it into corn rows.", "Tell her, \"Beauty is in the eye of the beholder.\" and give her a mirror.", 
+creaturesList.append(Creature("Medusa", 400000, "This medusa is having a really bad hair day.", "Play a pungi (one of those Indian flutes) to sooth her snaky hair.", 
+    "Braid her snake hair into corn rows.", "Tell her, \"You fine anyway girlfriend.\"", 
     "She's very upset about her hair. Her snakes bite you many, many, many times. You gaze upon her to make the hurting stop. You are stone.", 
     "Great job! She feels smart and sassy again. She gives you treasure she acquired from some unfortunate Argonauts worth $400,000!"))
-creaturesList.append(Creature("Vampire", 500000, "This vampire has a sunburn.", "Slather him with 50 gallons of aloe gel.", "Wrap him up in gauze like a mummy.",
+creaturesList.append(Creature("Vampire", 300000, "This vampire has a sunburn.", "Slather him with 5 gallons of aloe gel.", "Wrap him up in gauze like a mummy.",
     "Interview him about the centuries of his life until he forgets about the sunburn.", 
     "He is anrgy and decides to drain you like a Capri Sun. It cures his sunburn but you have no blood. You become a vampire and retire from the doctor life.",
-    "He's is very happy! He decides not to drink your blood. He gives you some old timey British stuff worth $500,000!"))
+    "He is very happy! He decides not to drink your blood. He gives you some old timey British stuff worth $300,000!"))
 
 def treatPatient():
+    print("""
+        **********************
+             Patient List
+        **********************
+        """)
     for creature in creaturesList:
         print(f"# {creaturesList.index(creature)+1} - {creature.name}")
-    selection=input("Which patient would you like to treat first? (Select a number and press Enter)\n")
-    if selection == "1":
-        pass
-    if selection == "2":
-        pass
-    if selection == "3":
-        pass
-    if selection == "4":
-        pass
-    if selection == "5":
-        pass
-    if selection == "6":
-        pass
-    else:
+    selection=input("\nWhich patient would you like to treat? (Select a number and press Enter)\n")
+    while selection.isdigit() == False or 1 > int(selection) or int(selection) > len(creaturesList):
+        selection=input("Which patient would you like to treat? (Select a number and press Enter)\n")
+    i=int(selection)-1
+    correct=random.randint(1,3)
+    clear()
+    print(f"For testing purposes: The correct answer is {correct}.")
+    creaturesList[i].treatmentOptions()
+    treatment=input("\nHow would you like to treat the patient? (Select 1, 2, or 3)\n")
+    while treatment.isdigit() == False or 1 > int(treatment) or int(treatment) > 3:
+        treatment=input("\nHow would you like to treat the patient? (Select 1, 2, or 3)\n")
+    while int(treatment) != correct:
+        creaturesList[i].loseHealth()
+        creaturesList[i].healthCheck()
+        print("This treatment is not working. Your patient is getting worse..")
+        treatment=input("What would you like to do now? (Select 1, 2, or 3)\n")
+        while treatment.isdigit() == False or 1 > int(treatment) or int(treatment) > 3:
+            treatment=input("\nWhat would you like to do now? (Select 1, 2, or 3)\n")
+    if int(treatment) == correct:
+        clear()
+        creaturesList[i].cured()
+        doctor.getMoney(creaturesList[i].money)
+        debt="${:,.0f}".format(doctor.debt)
+        print(f"Congratulations Doctor {doctor.name}! You're new student loan debt balance is {debt}.")
+        doctor.debtCheck()
+        del creaturesList[i]
+        print("\nLet's see our next patient.")
         treatPatient()
 
+
     
-#intro()
-createDoctor()
-print(doctor.name)
+
+    
+
+    
+intro()
+#createDoctor()
+#treatPatient()
+#print(doctor.name)
