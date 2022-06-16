@@ -12,8 +12,9 @@
 ## Playing the Game
 - After you have installed python, open a terminal and dowload the repository with the following text:
 ```
-git clone 
+git clone https://github.com/jasonian5000/digitalcrafts.git
 ```
+- The file is in the digitalcrafts/week2/day2 directory.
 - In terminal, navigate to the directory that contains the `RPGproject.py` file using the `cd` command.
 - Confirm the directory contains the file using the `ls` command.
 - Run the game with the following text:
@@ -22,4 +23,4 @@ python3 RPGproject.py
 ```
 - To exit the game at any time press `ctrl-C` .
 ---
-You can read more about my project and how I created it at 
+You can read more about my project and how I created it at [dev.to](https://dev.to/jasonian5000/my-first-python-project-was-an-rpg-4431).
