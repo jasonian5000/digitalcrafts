@@ -9,7 +9,7 @@ def playAgain():
     while choice.lower() != "n" and choice.lower() != "y":
         choice=input("Would you like to play again? Y or N \n")
     if choice.lower() == "y":
-        intro()
+        createDoctor()
     if choice == "n":
         quit()
 
@@ -39,7 +39,6 @@ def intro():
     """)
     intro=input("Press Enter to Start")
     clear()
-    intro=input("You are our new doctor from the realm of humans. (press Enter)")
     print(r"""
               -. -. `.  / .-' _.'  _
              .--`. `. `| / __.-- _' `
@@ -60,7 +59,7 @@ def intro():
          _.--/--/'( ) ) ( ) ) )`\-\-\-._
         ( ( ( ) ( ) ) ( ) ) ( ) ) ) ( ) )    
     """)
-    intro=input("I'm Karen the Ghoul and I'm the HR onboarding specialist. (press Enter)")
+    intro=input("Welcome doctor. I'm Karen the Banshee and I'm the HR onboarding specialist. (press Enter)")
     intro=input("I see you volunteered to work at the Mythical Hospital to help pay for your student loans. (press Enter)")
     intro=input("If you are able to cure enough of our mythical patients then your student loan will be paid off and you can leave. (press Enter)")
     intro=input("If a patient doesn't like you though... well just sign this waiver. (press Enter)")
@@ -85,7 +84,26 @@ class Doctor:
 
     def debtCheck(self):
         if doctor.debt <= 0:
-            print("\n\nYou paid off your student loan! Now you can move on to bigger and better things.")
+            print(r"""
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'               `$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$'                   `$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$'`$$$$$$$$$$$$$'`$$$$$$!                       !$$$$$$'`$$$$$$$$$$$$$'`$$$
+$$$$  $$$$$$$$$$$  $$$$$$$                         $$$$$$$  $$$$$$$$$$$  $$$$
+$$$$. `$' \' \$`  $$$$$$$!                         !$$$$$$$  '$/ `/ `$' .$$$$
+$$$$$. !\  !  ! .$$$$$$$$                           $$$$$$$$. !  !  /! .$$$$$
+$$$$$$   `--`--.$$$$$$$$$                           $$$$$$$$$.--'--'   $$$$$$
+$$$$$$L        `$$$$$^^$$                           $$^^$$$$$'        J$$$$$$
+$$$$$$$.   .'   ""~   $$$    $.                 .$  $$$   ~""   `.   .$$$$$$$
+$$$$$$$$.  ;      .e$$$$$!    $$.             .$$  !$$$$$e,      ;  .$$$$$$$$
+$$$$$$$$$   `.$$$$$$$$$$$$     $$$.         .$$$   $$$$$$$$$$$$.'   $$$$$$$$$
+$$$$$$$$    .$$$$$$$$$$$$$!     $$`$$$$$$$$'$$    !$$$$$$$$$$$$$.    $$$$$$$$
+$$$$$$$     $$$$$$$$$$$$$$$$.    $    $$    $   .$$$$$$$$$$$$$$$$     $$$$$$$
+                                 $    $$    $
+                                 $.   $$   .$
+                                 `$        $'
+                                  `$$$$$$$$'
+            """)
+            print("\nYou paid off your student loan! Now run as fast as you can from this terrible terrible hospital.")
             creaturesList.extend(usedCreatures)
             usedCreatures.clear()
             playAgain()
@@ -100,8 +118,22 @@ def createDoctor():
     if len(doctor.name)>0:
         debt="${:,.0f}".format(doctor.debt)
         clear()
+        print(r"""
+    \\\\
+   c  oo
+    | .U
+   __=__                        ,,,   
+  |.  __|___                    oo ; 
+  ||_/  /  /                    U= _  0
+  \_/__/__E   o                 /. .| |
+   (___ ||    |~~~~~~~~~~~~~~~~'----'~|
+   I---|||    |-----------------------|
+   I   |||    |       c(__)           |
+   ^   '--''  ^                       ^
+        """)
         print(f"Great Doctor {doctor.name}! You're current student loan debt is {debt}... GOOD LUCK!")
         next=input("Let's get you started with your first patient! (press Enter)")
+        clear()
         treatPatient()
 
 class Creature:
@@ -120,6 +152,29 @@ class Creature:
     def healthCheck(self):
         if self.health == 0:
             clear()
+            print(r"""
+               ...
+             ;::::;
+           ;::::; :;
+         ;:::::'   :;
+        ;:::::;     ;.
+       ,:::::'       ;           OOO\
+       ::::::;       ;          OOOOO\
+       ;:::::;       ;         OOOOOOOO
+      ,;::::::;     ;'         / OOOOOOO
+    ;:::::::::`. ,,,;.        /  / DOOOOOO
+  .';:::::::::::::::::;,     /  /     DOOOO
+ ,::::::;::::::;;;;::::;,   /  /        DOOO
+;`::::::`'::::::;;;::::: ,#/  /          DOOO
+:`:::::::`;::::::;;::: ;::#  /            DOOO
+::`:::::::`;:::::::: ;::::# /              DOO
+`:`:::::::`;:::::: ;::::::#/               DOO
+ :::`:::::::`;; ;:::::::::##                OO
+ ::::`:::::::`;::::::::;:::#                OO
+ `:::::`::::::::::::;'`:;::#                O
+  `:::::`::::::::;' /  / `:#
+   ::::::`:::::;'  /  /   `#
+            """)
             print("None of your treatments worked!")
             print(self.youlose)
             playAgain()
@@ -127,7 +182,26 @@ class Creature:
     def cured(self):
         clear()
         print("This treatment seems to be working! Your patient is cured!\n")
+        print(r"""
+        ⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢯⠙⠩⠀⡇⠊⠽⢖⠆⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠱⣠⠀⢁⣄⠔⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣷⣶⣾⣾⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⡔⠙⠈⢱⡟⣧⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡠⠊⠀⠀⣀⡀⠀⠘⠕⢄⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⠞⠀⠀⢀⣠⣿⣧⣀⠀⠀⢄⠱⡀⠀⠀⠀
+⠀⠀⡰⠃⠀⠀⢠⣿⠿⣿⡟⢿⣷⡄⠀⠑⢜⢆⠀⠀
+⠀⢰⠁⠀⠀⠀⠸⣿⣦⣿⡇⠀⠛⠋⠀⠨⡐⢍⢆⠀
+⠀⡇⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣦⡀⠀⢀⠨⡒⠙⡄
+⢠⠁⡀⠀⠀⠀⣤⡀⠀⣿⡇⢈⣿⡷⠀⠠⢕⠢⠁⡇
+⠸⠀⡕⠀⠀⠀⢻⣿⣶⣿⣷⣾⡿⠁⠀⠨⣐⠨⢀⠃
+⠀⠣⣩⠘⠀⠀⠀⠈⠙⣿⡏⠁⠀⢀⠠⢁⡂⢉⠎⠀
+⠀⠀⠈⠓⠬⢀⣀⠀⠀⠈⠀⠀⠀⢐⣬⠴⠒⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀
+        """)
         print(self.curedMessage)
+        nextScreen=input("Press Enter")
+        clear()
 
     def loseHealth(self):
         self.health -= 1
@@ -243,7 +317,7 @@ creaturesList.append(Creature("Medusa", 400000, "This medusa is having a really 
     """))
 creaturesList.append(Creature("Vampire", 300000, "This vampire has a sunburn.", "Slather him with 5 gallons of aloe gel.", "Wrap him up in gauze like a mummy.",
     "Interview him about the centuries of his life until he forgets about the sunburn.", 
-    "He is anrgy and decides to drain you like a Capri Sun. It cures his sunburn but you have no blood. You become a vampire and retire from the doctor life.",
+    "He is anrgy and decides to drain you like a Capri Sun. It cures his sunburn but you have no blood. Good news, you don't become a vampire. Bad news, you're dead.",
     "He is very happy! He decides not to drink your blood. He gives you some old timey British stuff worth $300,000!",
     r"""
         .-''''.
