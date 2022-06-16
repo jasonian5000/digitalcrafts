@@ -9,9 +9,20 @@ def playAgain():
     while choice.lower() != "n" and choice.lower() != "y":
         choice=input("Would you like to play again? Y or N \n")
     if choice.lower() == "y":
+        intro()
+    if choice == "n":
+        quit()
+
+def playAgainSkipIntro():
+    choice=input("Would you like to play again? Y or N \n")
+    while choice.lower() != "n" and choice.lower() != "y":
+        choice=input("Would you like to play again? Y or N \n")
+    if choice.lower() == "y":
+        clear()
         createDoctor()
     if choice == "n":
         quit()
+
 
 def intro():
     clear()
@@ -106,7 +117,7 @@ $$$$$$$     $$$$$$$$$$$$$$$$.    $    $$    $   .$$$$$$$$$$$$$$$$     $$$$$$$
             print("\nYou paid off your student loan! Now run as fast as you can from this terrible terrible hospital.")
             creaturesList.extend(usedCreatures)
             usedCreatures.clear()
-            playAgain()
+            playAgainSkipIntro()
 
 def createDoctor():
     global doctor
@@ -177,7 +188,7 @@ class Creature:
             """)
             print("None of your treatments worked!")
             print(self.youlose)
-            playAgain()
+            playAgainSkipIntro()
             
     def cured(self):
         clear()
@@ -236,9 +247,9 @@ creaturesList.append(Creature("Werewolf", 100000, "This werewolf has cursed flea
                 '". _
                     \    
     """))
-creaturesList.append(Creature("Dragon", 600000, "This dragon has a sore throat.", "Give her chamomile tea with organic honey.", "Feed her a tiny goat covered in molasses.",
+creaturesList.append(Creature("Dragon", 500000, "This dragon has a sore throat.", "Give her chamomile tea with organic honey.", "Feed her a tiny goat covered in molasses.",
     "Get her drunk.", "The dragon unexpectedly coughs and you are horribly burned to death. Bummer.",
-    "This is one of those dragons that sits in a cave full of gold! She gives you $600,000 worth of stolen dwarf booty!",
+    "This is one of those dragons that sits in a cave full of gold! She gives you $500,000 worth of stolen dwarf booty!",
     r"""
                 \||/
                 |  @___oo
