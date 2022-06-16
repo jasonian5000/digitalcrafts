@@ -1,5 +1,6 @@
 import random
 import os
+
 def clear():
     os.system('clear')
 
@@ -85,6 +86,8 @@ class Doctor:
     def debtCheck(self):
         if doctor.debt <= 0:
             print("\n\nYou paid off your student loan! Now you can move on to bigger and better things.")
+            creaturesList.extend(usedCreatures)
+            usedCreatures.clear()
             playAgain()
 
 def createDoctor():
@@ -260,7 +263,7 @@ creaturesList.append(Creature("Vampire", 300000, "This vampire has a sunburn.", 
 \       \  /`
          \(
     """))
-
+usedCreatures=[]
 def treatPatient():
     print("""
         **********************
@@ -294,6 +297,7 @@ def treatPatient():
         debt="${:,.0f}".format(doctor.debt)
         print(f"Congratulations Doctor {doctor.name}! You're new student loan debt balance is {debt}.")
         doctor.debtCheck()
+        usedCreatures.append(creaturesList[i])
         del creaturesList[i]
         print("\nLet's see our next patient.")
         treatPatient()
