@@ -23,7 +23,6 @@ def playAgainSkipIntro():
     if choice == "n":
         quit()
 
-
 def intro():
     clear()
     print(r"""
