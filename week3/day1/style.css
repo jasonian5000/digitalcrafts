@@ -1,0 +1,7 @@
+.city {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: aqua;
+}
+.container {background-color: yellow;
+height: 500px;
+border-radius: 20px;}
