@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+}
+
+.container {
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row; 
+    /* default is row*/
+    height: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+h1 {
+    margin: 20px;
+    color: red;
+    border: 1px solid red;
+    padding: 20px;
+}
