@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    grid-template-columns: 600px 200px;
+    grid-template-rows: 50px auto 30px;
+}
+.container > div {
+    border: 2px solid black;
+}
+.header {
+    display: grid;
+    grid-template-columns: 12fr 1fr 1fr 1fr 1fr;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.footer {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
