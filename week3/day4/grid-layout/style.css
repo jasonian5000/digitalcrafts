@@ -1,0 +1,55 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas: 
+    "one one one one"
+    "one one one one"
+    "two three four four"
+    "two five five six"
+    "two seven eight nine"
+    "two ten ten ten";
+}
+.container > div {
+    background-color: gold;
+    color: white;
+    font-size: 30px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.item1 {
+    grid-area: one;
+}
+.item2 {
+    grid-area: two;
+}
+.item3 {
+    grid-area: three;
+}
+.item4 {
+    grid-area: four;
+}
+.item5 {
+    grid-area: five;
+}
+.item6 {
+    grid-area: six;
+}
+.item7 {
+    grid-area: seven;
+}
+.item8 {
+    grid-area: eight;
+}
+.item9 {
+    grid-area: nine;
+}
+.item10 {
+    grid-area: ten;
+}

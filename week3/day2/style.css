@@ -1,22 +1,23 @@
-body {
-    background-color: black;
+.box {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px;
 }
+
+.box1 {background-color: antiquewhite;}
+.box2 {background-color: aquamarine;}
+.box3 {background-color: aqua;}
+.box4 {background-color: navy;}
+.box5 {background-color: blueviolet;}
+.box6 {background-color: chartreuse;}
+.box7 {background-color: cornflowerblue;}
+.box8 {background-color: cyan;}
+.box9 {background-color: teal;}
+.box10 {background-color: forestgreen;}
 
 .container {
-    border: 1px solid white;
     display: flex;
-    justify-content: center;
-    flex-direction: row; 
-    /* default is row*/
-    height: auto;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-h1 {
-    margin: 20px;
-    color: red;
-    border: 1px solid red;
-    padding: 20px;
+    border: 10px solid goldenrod;
 }
