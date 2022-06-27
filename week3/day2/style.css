@@ -1,12 +1,22 @@
+body {margin:0;padding:0;}
+
 .box {
     color: white;
     font-size: 100px;
     text-align: center;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
     padding: 10px;
+    /* flex decides what to do with extra space */
+    /* fills the flex container */
+    /* flex: 1; */
+    /* flex has 3 properties */
+    /* flex-grow: ; */
+    /* flex-shrink: ; */
+    /* flex-basis: ; */
+    /* write grow shrink and basis in one line with flex that paint-order */
 }
 
-.box1 {background-color: antiquewhite;}
+.box1 {background-color: lightblue;}
 .box2 {background-color: aquamarine;}
 .box3 {background-color: aqua;}
 .box4 {background-color: navy;}
@@ -16,8 +26,37 @@
 .box8 {background-color: cyan;}
 .box9 {background-color: teal;}
 .box10 {background-color: forestgreen;}
-
 .container {
     display: flex;
-    border: 10px solid goldenrod;
+    border: thick solid goldenrod;
+    /* center items along main axis */
+    /* justify-content: center; */
+    /* center items along cross axis */
+    /* align-items: center; */
+    /* lines up text of different sizes along the bottom */
+    /* align-items: baseline; */
+    /* changes the fill on the cross axis */
+    /* need to use flex-wrap to have it work */
+    /* align-content: space-between; */
+    /* fills the screen vertically */
+    /* height: 100vh; */
+    /* change the direction of main axis */
+    /* flex-direction: column; */
 }
+
+/* change the order of elements */
+/* .box3 {
+    order: 1;
+}
+.box7 {
+    order: -1
+} */
+.box9 {
+    /* align-self changes the alignment for an individual item */
+    /* align-self: stretch */
+    /* gives extra space to specific element */
+    /* flex: 5; */
+    /* flex-basis: 400px;
+    flex-shrink: 10; */
+}
+
