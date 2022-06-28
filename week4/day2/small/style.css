@@ -1,0 +1,14 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  color: rgb(208, 218, 226);
+  margin: 0;
+  background: linear-gradient(0.25turn, #1087a5, #7948b8);
+}
