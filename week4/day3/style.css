@@ -1,0 +1,30 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  color: rgb(208, 218, 226);
+  margin: 0;
+  background: linear-gradient(0.25turn, #1087a5, #7948b8);
+  font-size: 50px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+#animal-farm {
+    height: 300px;
+    width: 300px;
+    font-size: 200px;
+    border-radius: 50px;
+    background-color: #1087a5;
+    border: thick solid #7948b8;
+}
