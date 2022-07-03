@@ -4,6 +4,7 @@ const hitBtn = document.getElementById("hit-button");
 const dealBtn = document.getElementById("deal-button");
 const standBtn = document.getElementById("stand-button");
 const clearBtn = document.getElementById("clear-button");
+const selectDecks = document.getElementById("number-decks")
 const playerPoints = document.getElementById("player-points");
 const dealerPoints = document.getElementById("dealer-points");
 const mainMessage = document.getElementById("main-message");
@@ -44,8 +45,12 @@ const addCard = (hand, deck, cards, points, score) => {
   deck.splice(0, 1);
   return score;
 };
+const repeat = (makeDeck, times=1) => {
+    makeDeck()
+    times && --times && repeat(makeDeck, times)
+}
 const deal = () => {
-  makeDeck();
+  repeat(makeDeck, Number(selectDecks.value));
   dealerScore = addCard(
     dealerHand,
     deck,
@@ -75,6 +80,7 @@ const deal = () => {
     playerScore
   );
   dealBtn.disabled = true;
+  selectDecks.disabled = true
   hitBtn.disabled = false;
   standBtn.disabled = false;
   clearBtn.disabled = false;

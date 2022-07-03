@@ -90,7 +90,7 @@ body * {
   justify-content: center;
 }
 
-button {
+button, select {
   margin: 10px;
   font-size: 20px;
   border: 0;
@@ -103,13 +103,13 @@ button {
   letter-spacing: 1px;
 }
 
-button:hover {
+button:hover, option:hover {
   cursor: pointer;
   background: rgb(35, 133, 199);
   box-shadow: 0px 0px 10px 5px rgba(35, 133, 199, 0.55);
 }
 
-button[disabled] {
+button[disabled], select[disabled] {
   color: rgb(160, 160, 160);
   background: rgb(71, 71, 71);
   pointer-events: none;
