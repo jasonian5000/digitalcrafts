@@ -6,15 +6,13 @@
   <title>Star Wars Blackjack</title>
   <script defer src="main.js"></script>
   <link defer rel="stylesheet" href="style.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Jura" />
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Days+One" />
 </head>
 <body>
   <div class="container">
-    <div class="message-box" id="messages">
-      <p id="main-message">Welcome to the Cantina</p>
-    </div>
     <div class="table">
+      <div class="message-box" id="messages">
+      <p id="main-message">Welcome to the Cantina</p>
+      </div>
       <div class="player">
         <label class="player-name">Dealer: 
           <span id="dealer-points" class="points">
@@ -33,15 +31,24 @@
         </div>
       </div>
       <div class="buttons">
-        <select name="" id="number-decks">
-          <option value="1">1 Deck</option>
-          <option value="3">3 Decks</option>
-          <option value="6">6 Decks</option>
-        </select>
-        <button id="deal-button" type="button">Deal</button>
-        <button id="hit-button" type="button">Hit</button>
-        <button id="stand-button" type="button">Stand</button>
-        <button id="clear-button" type="button">Clear</button>
+        <div class="left-buttons">
+          <select name="" id="select-decks">
+            <option value="1">1 Deck</option>
+            <option value="3">3 Decks</option>
+            <option value="6">6 Decks</option>
+          </select>
+          <button id="stand-button" type="button">Stand</button>
+          <button id="new-button" type="button">New Hand</button>
+        </div>
+        <div class="middle-buttons">
+          <button id="deal-button" type="button">Deal</button>
+          <button id="hit-button" type="button">Hit</button>
+        </div>
+        <div class="score-box">
+          <p id="display-wins">wins: 0</p>
+          <p id= "display-loses">loses: 0</p>
+          <button id="reset-button" type="button">Reset Score</button>
+        </div>
       </div>
     </div>
     <div class="character" id="character-area"><img id="main-image" src="./images/musicians.png" alt="greedo"></div>

@@ -3,12 +3,19 @@ const playerHand = document.getElementById("player-hand");
 const hitBtn = document.getElementById("hit-button");
 const dealBtn = document.getElementById("deal-button");
 const standBtn = document.getElementById("stand-button");
-const clearBtn = document.getElementById("clear-button");
-const selectDecks = document.getElementById("number-decks")
+const newHandBtn = document.getElementById("new-button");
+const resetBtn = document.getElementById("reset-button")
+const selectDecks = document.getElementById("select-decks")
 const playerPoints = document.getElementById("player-points");
 const dealerPoints = document.getElementById("dealer-points");
 const mainMessage = document.getElementById("main-message");
 const mainImage = document.getElementById("main-image");
+const displayWins = document.getElementById("display-wins")
+const displayLoses = document.getElementById("display-loses")
+let winCounter = Number(sessionStorage.getItem("wins"))
+let loseCounter = Number(sessionStorage.getItem("loses"))
+displayWins.innerText = `wins: ${winCounter}`
+displayLoses.innerText = `loses: ${loseCounter}`
 let aceCounter = 0;
 let aceCompare = 0;
 let dealerScore = 0;
@@ -18,7 +25,7 @@ let playerCards = [];
 let deck = [];
 hitBtn.disabled = true;
 standBtn.disabled = true;
-clearBtn.disabled = true;
+newHandBtn.disabled = true;
 const suits = ["hearts", "spades", "clubs", "diamonds"];
 const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 const makeDeck = () => {
@@ -83,7 +90,7 @@ const deal = () => {
   selectDecks.disabled = true
   hitBtn.disabled = false;
   standBtn.disabled = false;
-  clearBtn.disabled = false;
+  newHandBtn.disabled = false;
   if (playerScore === 21 && dealerScore === 21) {
     tie();
   }
@@ -140,12 +147,16 @@ const win = () => {
   mainImage.src = "./images/hansolo.png";
   hitBtn.disabled = true;
   standBtn.disabled = true;
+  winCounter += 1
+  sessionStorage.setItem("wins", winCounter)
 };
 const lose = () => {
   mainMessage.innerText = "You lose!";
   mainImage.src = "./images/greedo.jpg";
   hitBtn.disabled = true;
   standBtn.disabled = true;
+  loseCounter += 1
+  sessionStorage.setItem("loses", loseCounter)
 };
 const tie = () => {
   mainMessage.innerText = "What?! It's a tie!";
@@ -162,8 +173,14 @@ const aceCheck = () => {
   }
   return aceCounter;
 };
+const resetGame = () => {
+    sessionStorage.setItem("loses", "0")
+    sessionStorage.setItem("wins", "0")
+    location.reload()
+}
 dealBtn.onclick = () => deal();
 hitBtn.onclick = () => hit();
 standBtn.onclick = () => stand();
-clearBtn.onclick = () => location.reload();
+newHandBtn.onclick = () => location.reload();
+resetBtn.onclick = () => resetGame()
 window.addEventListener("DOMContentLoaded", () => {});
