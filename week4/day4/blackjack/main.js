@@ -21,7 +21,7 @@ if (winCounter === 0 && loseCounter === 0) {
 } else {
   bankAmount = Number(sessionStorage.getItem("bank"));
 }
-displayBank.innerText = `credits: ${bankAmount}`
+displayBank.innerText = `credits: ${bankAmount}`;
 displayWins.innerText = `wins: ${winCounter}`;
 displayLoses.innerText = `loses: ${loseCounter}`;
 let betAmount = 0;
@@ -108,6 +108,7 @@ const deal = () => {
   if (dealerScore === 21 && playerScore < 21) {
     lose();
   }
+  dealerPoints.innerText = "";
 };
 const hit = () => {
   playerScore = addCard(
@@ -130,11 +131,14 @@ const hit = () => {
     win();
   }
 };
-const stand = () => {
+const revealDealerCard = () => {
   let img = new Image();
   img.src = dealerCards[0].imageSrc;
   dealerHand.removeChild(dealerHand.firstElementChild);
   dealerHand.replaceChild(img, dealerHand.childNodes[0]);
+  dealerPoints.innerText = dealerScore;
+};
+const stand = () => {
   while (dealerScore <= 16) {
     dealerScore = addCard(
       dealerHand,
@@ -155,6 +159,7 @@ const stand = () => {
   }
 };
 const win = () => {
+  revealDealerCard();
   mainMessage.innerText = "You win!";
   mainImage.src = "./images/hansolo.png";
   standBtn.disabled = true;
@@ -162,10 +167,11 @@ const win = () => {
   sessionStorage.setItem("wins", winCounter);
   displayWins.innerText = `wins: ${winCounter}`;
   bankAmount += betAmount;
-  sessionStorage.setItem("bank", bankAmount)
+  sessionStorage.setItem("bank", bankAmount);
   displayBank.innerText = `credits: ${bankAmount}`;
 };
 const lose = () => {
+  revealDealerCard();
   mainMessage.innerText = "You lose!";
   mainImage.src = "./images/greedo.jpg";
   standBtn.disabled = true;
@@ -177,6 +183,7 @@ const lose = () => {
   displayBank.innerText = `credits: ${bankAmount}`;
 };
 const tie = () => {
+  revealDealerCard();
   mainMessage.innerText = "What?! It's a tie!";
   mainImage.src = "./images/chewbacca.png";
   standBtn.disabled = true;
@@ -193,7 +200,7 @@ const aceCheck = () => {
 const resetGame = () => {
   sessionStorage.setItem("loses", "0");
   sessionStorage.setItem("wins", "0");
-  sessionStorage.setItem("bank", "500")
+  sessionStorage.setItem("bank", "500");
   location.reload();
 };
 
@@ -225,11 +232,11 @@ const bet = () => {
   if (betCheck <= bankAmount && betCheck > 4) {
     betText.innerText = `Bet Amount: ${betCheck} credits`;
     betAmount = betCheck;
-    placeBetBtn.disabled = true
+    placeBetBtn.disabled = true;
   }
   if (bankAmount < 5) {
-    betText.innerText = "You don't have enough credits"
-    placeBetBtn.disabled = true
+    betText.innerText = "You don't have enough credits";
+    placeBetBtn.disabled = true;
   }
   betInput.value = "";
 };

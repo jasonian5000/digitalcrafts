@@ -91,7 +91,7 @@ body * {
 .hand img {
   height: 150px;
   padding: 10px;
-  border-radius: 18px;;
+  border-radius: 15px;;
 }
 
 .buttons {
@@ -232,7 +232,6 @@ button[type="reset"]:hover {
   .container {
     justify-content: flex-start;
   }
-
   .hand {
     min-height: 100px;
   }
@@ -241,5 +240,8 @@ button[type="reset"]:hover {
   }
   #deal-hit-button, #deal-hit-button img {
     height: 100px;
+  }
+  .bet-input-container input{
+    font-size: 15px;
   }
 }
