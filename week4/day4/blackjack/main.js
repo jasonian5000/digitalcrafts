@@ -14,12 +14,19 @@ const betInput = document.getElementById("bet-input");
 const betText = document.getElementById("bet-text");
 const placeBetBtn = document.getElementById("place-bet-button");
 const displayBank = document.getElementById("display-bank");
-let winCounter = Number(sessionStorage.getItem("wins"));
-let loseCounter = Number(sessionStorage.getItem("loses"));
+const numberOfDecks = localStorage.getItem("numDecks");
+for (var i, j = 0; (i = selectDecks.options[j]); j++) {
+  if (i.value == numberOfDecks) {
+    selectDecks.selectedIndex = j;
+    break;
+  }
+}
+let winCounter = Number(localStorage.getItem("wins"));
+let loseCounter = Number(localStorage.getItem("loses"));
 if (winCounter === 0 && loseCounter === 0) {
   bankAmount = 500;
 } else {
-  bankAmount = Number(sessionStorage.getItem("bank"));
+  bankAmount = Number(localStorage.getItem("bank"));
 }
 displayBank.innerText = `credits: ${bankAmount}`;
 displayWins.innerText = `wins: ${winCounter}`;
@@ -68,7 +75,8 @@ const repeat = (makeDeck, times = 1) => {
   times && --times && repeat(makeDeck, times);
 };
 const deal = () => {
-  repeat(makeDeck, Number(selectDecks.value));
+  localStorage.setItem("numDecks", selectDecks.value);
+  repeat(makeDeck, Number(numberOfDecks));
   dealerScore = addCard(
     dealerHand,
     deck,
@@ -99,6 +107,7 @@ const deal = () => {
   );
   selectDecks.disabled = true;
   standBtn.disabled = false;
+  console.log(deck)
   if (playerScore === 21 && dealerScore === 21) {
     tie();
   }
@@ -164,10 +173,10 @@ const win = () => {
   mainImage.src = "./images/hansolo.png";
   standBtn.disabled = true;
   winCounter += 1;
-  sessionStorage.setItem("wins", winCounter);
+  localStorage.setItem("wins", winCounter);
   displayWins.innerText = `wins: ${winCounter}`;
   bankAmount += betAmount;
-  sessionStorage.setItem("bank", bankAmount);
+  localStorage.setItem("bank", bankAmount);
   displayBank.innerText = `credits: ${bankAmount}`;
 };
 const lose = () => {
@@ -176,10 +185,10 @@ const lose = () => {
   mainImage.src = "./images/greedo.jpg";
   standBtn.disabled = true;
   loseCounter += 1;
-  sessionStorage.setItem("loses", loseCounter);
+  localStorage.setItem("loses", loseCounter);
   displayLoses.innerText = `loses: ${loseCounter}`;
   bankAmount -= betAmount;
-  sessionStorage.setItem("bank", bankAmount);
+  localStorage.setItem("bank", bankAmount);
   displayBank.innerText = `credits: ${bankAmount}`;
 };
 const tie = () => {
@@ -198,9 +207,10 @@ const aceCheck = () => {
   return aceCounter;
 };
 const resetGame = () => {
-  sessionStorage.setItem("loses", "0");
-  sessionStorage.setItem("wins", "0");
-  sessionStorage.setItem("bank", "500");
+  localStorage.setItem("loses", "0");
+  localStorage.setItem("wins", "0");
+  localStorage.setItem("bank", "500");
+  localStorage.setItem("numDecks", "1")
   location.reload();
 };
 
