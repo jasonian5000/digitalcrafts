@@ -1,4 +1,4 @@
-const API_KEY = "2ce8b80170bb4bd65594b9e3f7f6ae5a"
+const API_KEY = ""
 const searchbutton = document.getElementById("search-button")
 const temp = document.getElementById("temperature")
 
