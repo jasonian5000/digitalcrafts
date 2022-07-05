@@ -107,7 +107,6 @@ const deal = () => {
   );
   selectDecks.disabled = true;
   standBtn.disabled = false;
-  console.log(deck)
   if (playerScore === 21 && dealerScore === 21) {
     tie();
   }
@@ -182,7 +181,7 @@ const win = () => {
 const lose = () => {
   revealDealerCard();
   mainMessage.innerText = "You lose!";
-  mainImage.src = "./images/greedo.jpg";
+  mainImage.src = "./images/greedo.png";
   standBtn.disabled = true;
   loseCounter += 1;
   localStorage.setItem("loses", loseCounter);
