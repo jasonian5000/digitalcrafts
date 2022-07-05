@@ -10,10 +10,21 @@ const mainMessage = document.getElementById("main-message");
 const mainImage = document.getElementById("main-image");
 const displayWins = document.getElementById("display-wins");
 const displayLoses = document.getElementById("display-loses");
+const betInput = document.getElementById("bet-input");
+const betText = document.getElementById("bet-text");
+const placeBetBtn = document.getElementById("place-bet-button");
+const displayBank = document.getElementById("display-bank");
 let winCounter = Number(sessionStorage.getItem("wins"));
 let loseCounter = Number(sessionStorage.getItem("loses"));
+if (winCounter === 0 && loseCounter === 0) {
+  bankAmount = 500;
+} else {
+  bankAmount = Number(sessionStorage.getItem("bank"));
+}
+displayBank.innerText = `credits: ${bankAmount}`
 displayWins.innerText = `wins: ${winCounter}`;
 displayLoses.innerText = `loses: ${loseCounter}`;
+let betAmount = 0;
 let aceCounter = 0;
 let aceCompare = 0;
 let dealerScore = 0;
@@ -150,6 +161,9 @@ const win = () => {
   winCounter += 1;
   sessionStorage.setItem("wins", winCounter);
   displayWins.innerText = `wins: ${winCounter}`;
+  bankAmount += betAmount;
+  sessionStorage.setItem("bank", bankAmount)
+  displayBank.innerText = `credits: ${bankAmount}`;
 };
 const lose = () => {
   mainMessage.innerText = "You lose!";
@@ -158,6 +172,9 @@ const lose = () => {
   loseCounter += 1;
   sessionStorage.setItem("loses", loseCounter);
   displayLoses.innerText = `loses: ${loseCounter}`;
+  bankAmount -= betAmount;
+  sessionStorage.setItem("bank", bankAmount);
+  displayBank.innerText = `credits: ${bankAmount}`;
 };
 const tie = () => {
   mainMessage.innerText = "What?! It's a tie!";
@@ -176,6 +193,7 @@ const aceCheck = () => {
 const resetGame = () => {
   sessionStorage.setItem("loses", "0");
   sessionStorage.setItem("wins", "0");
+  sessionStorage.setItem("bank", "500")
   location.reload();
 };
 
@@ -183,14 +201,40 @@ const dealHitSwitch = () => {
   if (mainMessage.innerText !== "Welcome to the Cantina") {
     location.reload();
   }
-  if (playerCards.length >= 2) {
+  if (
+    playerCards.length >= 2 &&
+    mainMessage.innerText === "Welcome to the Cantina"
+  ) {
     hit();
   }
-  if (playerCards.length < 2) {
+  if (
+    playerCards.length < 2 &&
+    mainMessage.innerText === "Welcome to the Cantina"
+  ) {
     deal();
   }
+};
+const bet = () => {
+  let betCheck = Number(betInput.value);
+  if (isNaN(betCheck)) {
+    betText.innerText = "You must enter a number";
+  }
+  if (betCheck > bankAmount || betCheck < 5) {
+    betText.innerText = `Must be between 5 and ${bankAmount} credits`;
+  }
+  if (betCheck <= bankAmount && betCheck > 4) {
+    betText.innerText = `Bet Amount: ${betCheck} credits`;
+    betAmount = betCheck;
+    placeBetBtn.disabled = true
+  }
+  if (bankAmount < 5) {
+    betText.innerText = "You don't have enough credits"
+    placeBetBtn.disabled = true
+  }
+  betInput.value = "";
 };
 dealHitBtn.onclick = () => dealHitSwitch();
 standBtn.onclick = () => stand();
 resetBtn.onclick = () => resetGame();
+placeBetBtn.onclick = () => bet();
 window.addEventListener("DOMContentLoaded", () => {});

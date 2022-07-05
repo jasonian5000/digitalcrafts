@@ -100,7 +100,7 @@ body * {
   flex: 1;
 }
 
-button, select {
+button, select, input {
   margin: 10px;
   font-size: 20px;
   border: 0;
@@ -153,7 +153,6 @@ button[type="reset"]:hover {
   display: flex;
   justify-content: center;
   padding: 10px 0px 0px 0px;
-  /* flex: 1; */
 }
 
 .character img{
@@ -164,6 +163,7 @@ button[type="reset"]:hover {
 .left-buttons {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex: 1;
 }
 
@@ -183,6 +183,10 @@ button[type="reset"]:hover {
   font-size: 20px;
 }
 
+.score-box p {
+  margin: 10px;
+}
+
 #deal-hit-button {
   height: 150px;
   padding: 0;
@@ -191,6 +195,15 @@ button[type="reset"]:hover {
 #deal-hit-button img {
   border-radius: 5px;
   height: 150px;
+}
+
+.bet-input-container {
+  display: flex;
+}
+
+.bet-input-container input {
+  width: 0px;
+  flex: 1;
 }
 
 @media screen and (min-width:995px) {

@@ -32,20 +32,26 @@
       </div>
       <div class="buttons">
         <div class="left-buttons">
-          <select name="" id="select-decks">
+          <select name="number-of-decks" id="select-decks">
             <option value="1">1 Deck</option>
             <option value="3">3 Decks</option>
             <option value="6">6 Decks</option>
           </select>
+          <div class="bet-input-container">
+            <input name="bet-input" id="bet-input" placeholder="Bet amount..">
+          </div>
+          <p id="bet-text">Bet Amount: 5 credit minimun</p>
+          <button id="place-bet-button">Place Bet</button>
         </div>
         <div class="middle-buttons">
           <button id="deal-hit-button" type="button"><img src="./images/back.png" alt="deck"></button>
           <button id="stand-button" type="button">Stand</button>
         </div>
         <div class="score-box">
-          <p id="display-wins">wins: 0</p>
-          <p id= "display-loses">loses: 0</p>
-          <button id="reset-button" type="button">Reset Score</button>
+          <p id="display-bank"></p>
+          <p id="display-wins"></p>
+          <p id= "display-loses"></p>
+          <button id="reset-button" type="button">Reset All</button>
         </div>
       </div>
     </div>
