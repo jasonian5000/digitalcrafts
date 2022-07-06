@@ -11,6 +11,14 @@ const humidity = document.getElementById("humidity");
 const high = document.getElementById("high");
 const low = document.getElementById("low");
 const src = document.createElement("src");
+let json = [];
+
+const useDefault = async () => {
+  url = `https://api.openweathermap.org/data/2.5/weather?q=Houston,us&appid=${API_KEY}&units=imperial`;
+  const weatherData = await fetch(url);
+  json = await weatherData.json();
+  fillWeatherInfo();
+};
 
 const searchWeather = async () => {
   const searchInput = document.getElementById("weather-bar").value;
@@ -21,7 +29,11 @@ const searchWeather = async () => {
     url = `https://api.openweathermap.org/data/2.5/weather?zip=${searchInput},us&appid=${API_KEY}&units=imperial`;
   }
   const weatherData = await fetch(url);
-  const json = await weatherData.json();
+  json = await weatherData.json();
+  fillWeatherInfo();
+};
+
+const fillWeatherInfo = () => {
   temp.innerText = Math.round(json.main.temp);
   weatherLocation.innerText = json.name;
   feelsLike.innerText = `${Math.round(json.main.feels_like)}º`;
@@ -31,7 +43,7 @@ const searchWeather = async () => {
   description.innerText = json.weather[0].description;
   icon.src = `https://openweathermap.org/img/wn/${json.weather[0].icon}@4x.png`;
 };
-
+useDefault();
 searchbutton.onclick = () => searchWeather();
 
 const days = [
