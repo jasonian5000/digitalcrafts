@@ -1,4 +1,4 @@
-const API_KEY = "0e8b8e4a59d7e7df9bedc4a1a86a5e89";
+const API_KEY = "";
 const searchbutton = document.getElementById("search-button");
 const dayDate = document.getElementById("day-date");
 const time = document.getElementById("time");
