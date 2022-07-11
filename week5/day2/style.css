@@ -11,26 +11,21 @@ html {
 body {
   font-family: Tahoma;
   color: rgb(219, 219, 219);
-  text-shadow: rgba(0, 0, 0, 0.25) 5px 2.4px 3.2px;
   margin: 0;
   min-height: 100vh;
   background-color: black;
-  /* background-image: url("https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg"); */
+  background-image: url("https://rukminim1.flixcart.com/image/832/832/jql8fbk0/poster/z/m/d/medium-pwl-wall-poster-13-19-inches-matte-finish-dc-vs-marvel-original-imaek7kdudjjxxhd.jpeg");
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-}
-
-img {
-  filter: drop-shadow(20px 10px 4px rgba(0, 0, 0, 0.25));
 }
 
 .wrapper {
   background: 255, 255, 255, 0.2;
   backdrop-filter: blur(8px);
-  height: calc(100vh -40px);
-  max-width: 2000px;
   padding: 0px;
   width: 100vw;
+  height: 100vh;
   display: flex;
 }
 
@@ -41,34 +36,37 @@ img {
   justify-content: flex-start;
   row-gap: 10px;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
+}
 
+.title {
+  text-align: center;
+  padding: 20px;
 }
 
 .search-bar {
   width: 100%;
-  max-width: 450px;
+  max-width: 60vw;
   display: flex;
   column-gap: 5px;
 }
 
 ::placeholder {
-    color: rgba(223, 223, 223, 0.575);
+  color: rgba(223, 223, 223, 0.575);
 }
 
 .search-bar input[type="text"],
 button {
   flex: 1;
-  color: rgb(219, 219, 219);;
+  color: rgb(219, 219, 219);
   text-decoration: none;
   background: rgba(185, 185, 185, 0.205);
   padding: 5px 5px 5px 15px;
   display: inline-block;
-  outline: 0;
+  outline: thin solid #c0c0c0;
   border: 0;
   transition: all 0.5s;
-  border-radius: 5px;
-  /* box-shadow: rgba(0, 0, 0, 0.25) 5px 2.4px 3.2px; */
+  border-radius: 2px;
   height: 30px;
 }
 
@@ -81,64 +79,17 @@ button:hover {
   max-width: 100px;
 }
 
-.character-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0px 0px 0px;
-}
-.character-info * {
-  flex: 1;
+.character-card {
+  background-color: transparent;
+  width: 80vw;
+  border: 1px solid #f1f1f1;
 }
 
-/* #time {
-  font-size: 2em;
-} */
-
-.image-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-area img {
-  max-height: 350px;
-  padding: 10px;
-}
-
-.character-stats p {
-  margin: 5px;
-}
-
-.extra-info {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.extra-info * {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* .extra-boxes {
-  min-width: 120px;
-  min-height: 120px;
+.character-card-inner {
   text-align: center;
-  color: rgb(219, 219, 219);;
-  text-decoration: none;
-  background: rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  display: inline-block;
-  outline: 0;
-  border: 0;
-  transition: all 0.5s;
-  border-radius: 60px;
-  box-shadow: rgba(0, 0, 0, 0.25) 5px 2.4px 3.2px;
 }
 
-.extra-box-fill {
-  font-size: 1.5em;
-} */
+#front-card img {
+  max-width: 70vw;
+  max-height: 70vh;
+}
