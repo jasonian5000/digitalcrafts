@@ -9,10 +9,15 @@ const PORT = 3001;
 app.engine("html", es6Renderer);
 app.set("views", "templates");
 app.set("view engine", "html");
+// tells html where to find local files
+app.use(express.static("public"))
 
 app.get("/", (req, res) => {
   // res.send("Hello from Express!")
-  res.render("home");
+  const user = { name: "Jason" };
+  res.render("home", {
+    locals: { user, teacher: "Joe", students: ["Amanda", "Carlos"] },
+  });
 });
 
 app.get("/joe", (req, res) => {
