@@ -1,7 +1,6 @@
 const {Restaurants} = require("../../database/models")
 const express = require("express");
 const router = express.Router()
-const bcrypt = require("bcrypt")
 
 module.exports = router
 
@@ -19,21 +18,9 @@ module.exports = router
 // delete 1 restaurant by by name
 
 router.post("/create_restaurant", async (req, res) => {
-    const {name, address, reviewScore} = req.body
-    try {
-        const newRestaurant = {
-            name: name,
-            address: address,
-            reviewScore: reviewScore,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-        };
-        const createRestaurant = await Restaurants.create(newRestaurant);
-        res.send(createRestaurant);
-        } catch (error) {
-            res.send(error);
-    }
-})
+  const create = await Restaurants.create(req.body);
+  res.send(create);
+});
 
 router.get("/by_id/:id", async (req,res) => {
     const { id } = req.params;
@@ -68,7 +55,6 @@ router.get("/search_by_address", async (req,res) => {
 router.post("/update_name", async (req, res) => {
     const {name, newName} = req.body
     try {
-        // find user based on username in our database
         const findRestaurant = await Restaurants.findOne({where: {name: name}})
         if(!newName) {
             res.status(400).send("Enter a new name").redirect("/update_name")
@@ -85,7 +71,6 @@ router.post("/update_name", async (req, res) => {
 router.post("/update_address", async (req, res) => {
     const {address, newAddress} = req.body
     try {
-        // find user based on username in our database
         const findRestaurant = await Restaurants.findOne({where: {address: address}})
         if(!newAddress) {
             res.status(400).send("Enter a new address").redirect("/update_address")

@@ -6,9 +6,8 @@ const restaurantsRoutes = require("./restaurants")
 const es6Renderer = require("express-es6-template-engine")
 
 app.use(express.static("public"))
-
 app.engine("html", es6Renderer)
-app.set("views", "../public")
+app.set("views", "./public/views")
 app.set("view engine", "html")
 
 app.use(express.json())
