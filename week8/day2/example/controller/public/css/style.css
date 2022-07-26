@@ -1,0 +1,33 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  color: goldenrod;
+  text-align: center;
+  font-size: 5vw;
+  margin: 0;
+  background: linear-gradient(0.25turn, #1087a5, #4862b8);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.main ul {
+    padding: 0;
+}
+
+.main li {
+    list-style-type: none;
+    padding-top: 10px;
+}
