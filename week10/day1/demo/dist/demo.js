@@ -7,4 +7,7 @@ let andrea = "andrea";
 let rahminsAge = 23;
 // boolean - true or false
 let stacysInternet = false;
-// 
+// any
+let joe = "joe";
+joe = 0;
+joe = true;
