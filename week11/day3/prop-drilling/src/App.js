@@ -231,19 +231,13 @@ function App() {
       <input
         className="search-bar"
         type="text"
-        onChange={(event) => setQuery(event.target.value)}
+        onChange={(e) => setQuery(e.target.value)}
         placeholder="search pokemon.."
       />
       <div className="pokemon">
         {pokemon
           .filter((pokemon) => {
-            if (query === "") {
-              return pokemon;
-            } else if (
-              pokemon.name.toLowerCase().includes(query.toLowerCase())
-            ) {
-              return pokemon;
-            }
+            return pokemon.name.toLowerCase().includes(query.toLowerCase());
           })
           .map((pokemon) => (
             <Pokecard
