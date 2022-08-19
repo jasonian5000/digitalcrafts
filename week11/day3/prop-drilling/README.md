@@ -5,7 +5,7 @@
   // useEffect(() => {
   // }, []);
   // Version 2
-  // This will run one time and will run if the state variable is updated or the dome is updated
+  // This will run one time and will run if the state variable is updated or the dom is updated
   // useEffect(() => {
   // }, [state]);
   // Version 3
