@@ -1,0 +1,126 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: rgb(219, 219, 219);
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(105, 105, 105, 0.363);
+}
+
+.search-bar input, .search-bar button {
+  margin-top: 20px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 2px;
+  border: none;
+}
+
+.search-bar input {
+  background: transparent;
+  background: rgba(180, 174, 167, 0.15);
+  background-clip: padding-box;
+
+  border: none;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  -webkit-border-radius: 6px;
+
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.5), inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.3);
+  -o-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.5), inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.5), inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.3);
+
+  color: rgb(201, 201, 201);
+  outline: none;
+  padding: 0 20px 0 20px;
+
+  transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+
+  width: 60vw;
+  text-align: center;
+}
+
+.search-bar *:focus,
+.search-bar *:hover {
+  background: transparent;
+  background: rgba(163, 135, 106, 0.2);
+
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.5);
+  -o-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.search-bar button {
+  border-radius: 6px;
+  margin-left: 5px;
+  background: rgba(29, 81, 114, 0.541);
+  background-clip: padding-box;
+  color: rgb(221, 219, 219)
+}
+
+.time-date {
+  margin: 30px;
+  text-align: center;
+}
+
+.time-date * {
+  margin: 5px;
+}
+
+.time-date h1 {
+  font-size: 3.5em;
+}
+
+.temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.temp h1{
+  font-size: 6em;
+  margin: 20px;
+}
+
+.temp p {
+  margin: 5px;
+}
