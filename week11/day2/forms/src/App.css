@@ -1,0 +1,77 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: calc(45vw - 50px);
+  min-height: 40vh;
+  background-color: rgb(83, 83, 121);
+  padding: 50px 0px 30px 0px;
+  margin: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 60vw;
+  align-items: center;
+  font-size: 13px;
+  flex: 1;
+}
+
+input {
+  height: 30px;
+  margin: 12px 0px 12px 0px;
+}
+
+.name-inputs {
+  display: flex;
+  min-width: 70%;
+}
+
+.name-inputs input {
+  /* flex: 1; */
+  min-width: calc(50% - 10px);
+}
+
+input[name="email"],
+input[name="password"] {
+  min-width: 70%;
+  /* max-width: 400px; */
+}
+
+input[name="submit"] {
+  height: 40px;
+  min-width: 70%;
+  /* max-width: 408px; */
+  color: white;
+  background-color: rgb(127, 190, 127);
+  border: 0px;
+}
+
+.social-buttons {
+  min-width: 70%;
+}
+
+button[name="facebook-button"],
+button[name="twitter-button"] {
+  height: 40px;
+  min-width: 50%;
+  max-width: 50%;
+  color: white;
+  border: 0px;
+  margin: 0px;
+  font-size: 1vw
+}
+
+button[name="facebook-button"] {
+  background-color: rgb(60, 60, 196);
+}
+
+button[name="twitter-button"] {
+  background-color: rgb(122, 166, 247);
+}
